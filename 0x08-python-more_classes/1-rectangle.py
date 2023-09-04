@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defining a Rectangle class"""
 
+
 class Rectangle:
     """"
     Instantiation with optional attributes:
@@ -15,7 +16,6 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-
 
     @property
     def width(self):
