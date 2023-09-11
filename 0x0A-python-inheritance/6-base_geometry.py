@@ -5,6 +5,7 @@
 class BaseGeometry:
     """an empty class"""
 
+    @classmethod
     def area(self):
         """It calculates the area"""
 
