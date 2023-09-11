@@ -6,8 +6,12 @@ class MyInt(int):
     """It inverts integer operators != and =="""
 
     def __eq__(self, value):
-        """it iverts == """
-        return self.real is not value
+        """it iverts == operator"""
+        if self is not other_int:
+            return False
+        return True
 
     def __ne__(self, value):
-        return self.real is value
+        if self is other_int:
+            return False
+        return True
