@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Dening a student class based on '9-student.py'"""
+"""Defining a Class Student"""
 
 
 class Student:
@@ -31,3 +31,8 @@ class Student:
                 elements[k] = element
 
         return (elements)
+
+    def reload_from_json(self, json):
+        """It replaces all the attributes if the student instance"""
+        for k, element in json.items():
+            setattr(self, k, element)
