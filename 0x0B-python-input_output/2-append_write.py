@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Read file module"""
+"""Appending a string module"""
 
 
 def append_write(filename="", text=""):
