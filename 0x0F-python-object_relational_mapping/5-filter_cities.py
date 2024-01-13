@@ -7,6 +7,7 @@ import sys
 
 
 if __name__ == '__main__':
+    """Configuring the database"""
     db = MySQLdb.connect(
             host='localhost',
             port=3306,
@@ -16,14 +17,13 @@ if __name__ == '__main__':
             charset='utf8'
     )
 
+    """Creating the connection"""
     connect = db.cursor()
     state_name = sys.argv[4]
-    connect.execute("SELECT cities.id, cities.name, states.name \
-            FROM cities JOIN states ON cities.state_id = states.id\
-            WHERE states.name = '{}';".format(sys.argv[4]))
+    connect.execute("SELECT * FROM `cities` as `connect` \
+            INNER JOIN `states` as `st` \
+            ON `connect`.`state_id` = `st`.`id` \
+            ORDER BY `connect`.`id`")
     cities = connect.fetchall()
 
-    print(", ".join([city[0] for city in cities]))
-
-    connect.close()
-    db.close()
+    print(", ".join([city[2] for city in cities if city[4] == argv[4]]))

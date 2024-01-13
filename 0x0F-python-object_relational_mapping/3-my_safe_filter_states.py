@@ -9,6 +9,7 @@ import sys
 
 
 if __name__ == '__main__':
+    """Configuring the database"""
     db = MySQLdb.connect(
             host='localhost',
             port=3306,
@@ -18,9 +19,8 @@ if __name__ == '__main__':
             charset='utf8'
     )
 
+    """Creating the connection"""
     connect = db.cursor()
-    connect.execute("SELECT * FROM states WHERE name = %s;" (sys.argv[4],))
+    connect.execute("SELECT * FROM `states`")
     states = connect.fetchall()
-
-    for state in states:
-        print(state)
+    [print(state) for tate in states if state[1] == argv[4]]
