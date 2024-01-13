@@ -13,19 +13,8 @@ if __name__ == "__main__":
     )
 
     """Creating the connection"""
-    connect = MySQLdb.connect(**db)
-    cursor = connect.cursor()
-
-    """Executing the command to get all states by asc order"""
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-
-    """Fetching all the rows"""
-    rows = cursor.fetchall()
-
-    """Showing the results"""
-    for row in rows:
-        print(row)
-
-    """Closing the connection and the cursor"""
-    cursor.close()
+    connect = db.cursor()
+    connect.execute("SELECT * FROM `states` ORDER BY `id` ASC")
+    [print(state) for state in connect.fetchall()]
     connect.close()
+    db.close()
