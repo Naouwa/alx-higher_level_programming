@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" A script that  lists all states with a name starting with N
-from the database hbtn_0e_0_usa"""
+""" It lists all cities from the database hbtn_0e_4_usa """
 
 import MySQLdb
 import sys
@@ -17,7 +16,8 @@ if __name__ == '__main__':
     )
 
     connect = db.cursor()
-    connect.execute("SELECT * FROM `states` ORDER BY `id`")
+    connect.execute("SELECT cities.id, cities.name, states.name\
+            FROM cities JOIN states ON cities.state_id = states.id")
     states = connect.fetchall()
 
     for state in states:

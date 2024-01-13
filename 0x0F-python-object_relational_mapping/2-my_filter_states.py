@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" A script that  lists all states with a name starting with N
-from the database hbtn_0e_0_usa"""
+""" It takes in an argument and displays all values in the states table of
+hbtn_0e_0_usa where name matches the argument."""
 
 import MySQLdb
 import sys
@@ -17,7 +17,9 @@ if __name__ == '__main__':
     )
 
     connect = db.cursor()
-    connect.execute("SELECT * FROM `states` ORDER BY `id`")
+    connect.execute(
+            "SELECT * FROM states WHERE CONVERT(`name USING Latin1`)\
+                    COLLATE Latin1_General_CS = '{}';".format(sys.argv[4]))
     states = connect.fetchall()
 
     for state in states:
