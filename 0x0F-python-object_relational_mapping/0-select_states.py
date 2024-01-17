@@ -15,6 +15,10 @@ if __name__ == "__main__":
     """Creating the connection"""
     connect = db.cursor()
     connect.execute("SELECT * FROM `states` ORDER BY `id` ASC")
-    [print(state) for state in connect.fetchall()]
+
+    states = connect.fetchall()
+
+    [print(state) for state in states]
+
     connect.close()
     db.close()
