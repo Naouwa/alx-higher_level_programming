@@ -21,7 +21,8 @@ if __name__ == '__main__':
 
     """Creating the connection"""
     connect = db.cursor()
-    connect.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
+    connect.execute(
+            "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
             (sys.argv[4],))
     states = connect.fetchall()
     for state in states:
