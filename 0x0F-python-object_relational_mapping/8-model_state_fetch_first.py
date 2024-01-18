@@ -10,10 +10,9 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
 
-    Session = sessionmaker()
-    session = Session(bind=engine)
-    
     Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
     st = session.query(State).order_by(State.id).first()
 
     if st:
