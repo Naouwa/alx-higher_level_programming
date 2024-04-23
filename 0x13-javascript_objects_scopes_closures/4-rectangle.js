@@ -13,8 +13,7 @@ class Rectangle {
   // Creating the print instance method
   print () {
     let i = 0;
-    for (i = 0; i < this.height; i++)
-{ console.log('X'.repeat(this.width)); }
+    for (i = 0; i < this.height; i++) { console.log('X'.repeat(this.width)); }
   }
 
   // Creating the rotate instance method

@@ -5,7 +5,7 @@
 class Rectangle {
   constructor (w, h) {
     if (w > 0 && h > 0) {
-    // Returns an empty object if conditions are met  
+    // Returns an empty object if conditions are met
       this.width = w;
       this.height = h;
     }
