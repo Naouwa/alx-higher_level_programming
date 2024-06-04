@@ -9,18 +9,13 @@ const url = process.argv[2];
 const filePath = process.argv[3];
 
 // Make a GET request to fetch the contents of the webpage
-request(url, (error, response, body) => {
-  if (error) {
-    console.error(error);
-    return;
+request(url, function (err, res, body) {
+  if (err) {
+    console.log(err);
   }
-
-  // Write the body response to the specified file path
-  fs.writeFile(filePath, body, 'utf8', (err) => {
+  fs.writeFile(filePath, body, 'utf8', function (err) {
     if (err) {
-      console.error(err);
-      return;
+      console.log(err);
     }
-    console.log(`File saved to ${filePath}`);
   });
 });
